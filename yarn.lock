@@ -2726,17 +2726,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:*":
+"commander@npm:*, commander@npm:^14.0.0":
   version: 14.0.0
   resolution: "commander@npm:14.0.0"
   checksum: 10c0/73c4babfa558077868d84522b11ef56834165d472b9e86a634cd4c3ae7fc72d59af6377d8878e06bd570fe8f3161eced3cbe383c38f7093272bb65bd242b595b
-  languageName: node
-  linkType: hard
-
-"commander@npm:^11.1.0":
-  version: 11.1.0
-  resolution: "commander@npm:11.1.0"
-  checksum: 10c0/13cc6ac875e48780250f723fb81c1c1178d35c5decb1abb1b628b3177af08a8554e76b2c0f29de72d69eef7c864d12613272a71fabef8047922bc622ab75a179
   languageName: node
   linkType: hard
 
@@ -7469,7 +7462,7 @@ __metadata:
     blessed: "npm:^0.1.81"
     blessed-contrib: "npm:^4.11.0"
     chokidar: "npm:^3.0.0"
-    commander: "npm:^11.1.0"
+    commander: "npm:^14.0.0"
     eslint: "npm:^9.27.0"
     globals: "npm:^16.2.0"
     gray-matter: "npm:^4.0.0"
