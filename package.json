@@ -74,7 +74,7 @@
     "blessed": "^0.1.81",
     "blessed-contrib": "^4.11.0",
     "chokidar": "^3.0.0",
-    "commander": "^11.1.0",
+    "commander": "^14.0.0",
     "gray-matter": "^4.0.0",
     "ink": "^4.0.0",
     "js-yaml": "^4.1.0",
