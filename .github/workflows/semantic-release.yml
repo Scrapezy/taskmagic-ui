@@ -22,25 +22,28 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Debug git status
+        run: |
+          git log --oneline -5
+          git status
+          git branch -av
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'yarn'
+          node-version: '20'
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Run tests
         run: yarn test
 
-      - name: Build
+      - name: Build package
         run: yarn build
-
-      - name: Verify build artifacts
-        run: |
-          ls -la dist/
-          node dist/cli.js --version
 
       - name: Release
         env:

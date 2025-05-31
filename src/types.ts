@@ -20,7 +20,7 @@ export interface TaskDetails {
   agentNotes?: string;
 }
 
-export interface Task extends TaskStatus, TaskDetails { }
+export interface Task extends TaskStatus, TaskDetails {}
 
 export interface ProjectStructure {
   tasks: Task[];

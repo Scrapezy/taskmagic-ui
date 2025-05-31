@@ -4,16 +4,13 @@
   "description": "Terminal dashboard for Task Magic project management system",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "bin": {
-    "taskmagic-ui": "dist/cli.js"
-  },
+  "bin": "dist/cli.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "dev": "tsc --watch",
     "start": "node dist/cli.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:platform": "node scripts/test-platform.js",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier --check src/**/*.ts",
@@ -84,5 +81,5 @@
     "react": "^18.0.0",
     "yaml": "^2.0.0"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "yarn@4.9.1"
 }

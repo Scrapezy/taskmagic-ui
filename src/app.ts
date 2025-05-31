@@ -46,7 +46,9 @@ export class TaskMagicApp {
 
       if (!structure.isValid) {
         console.error('❌ No valid Task Magic project found');
-        console.log('Please run this tool from a directory containing a .ai folder with tasks and plans');
+        console.log(
+          'Please run this tool from a directory containing a .ai folder with tasks and plans'
+        );
         return false;
       }
 
@@ -56,8 +58,8 @@ export class TaskMagicApp {
           currentView: 'overview',
           selectedTask: null,
           filter: {},
-          searchQuery: ''
-        }
+          searchQuery: '',
+        },
       };
 
       // Initialize file watcher if enabled
@@ -65,11 +67,17 @@ export class TaskMagicApp {
         this.setupFileWatcher(structure.projectPath);
       }
 
-      console.log(`✅ Loaded Task Magic project from: ${structure.projectPath}`);
-      console.log(`📋 Found ${structure.tasks.length} tasks and ${structure.plans.length} plans`);
+      console.log(
+        `✅ Loaded Task Magic project from: ${structure.projectPath}`
+      );
+      console.log(
+        `📋 Found ${structure.tasks.length} tasks and ${structure.plans.length} plans`
+      );
 
       if (this.watchingEnabled) {
-        console.log('📁 File watching enabled - dashboard will update automatically');
+        console.log(
+          '📁 File watching enabled - dashboard will update automatically'
+        );
       }
 
       return true;
@@ -129,37 +137,41 @@ export class TaskMagicApp {
 
     // Count by status
     const statusCounts = {
-      pending: tasks.filter(t => t.status === 'pending').length,
-      inprogress: tasks.filter(t => t.status === 'inprogress').length,
-      completed: tasks.filter(t => t.status === 'completed').length,
-      failed: tasks.filter(t => t.status === 'failed').length
+      pending: tasks.filter((t) => t.status === 'pending').length,
+      inprogress: tasks.filter((t) => t.status === 'inprogress').length,
+      completed: tasks.filter((t) => t.status === 'completed').length,
+      failed: tasks.filter((t) => t.status === 'failed').length,
     };
 
     // Count by priority
     const priorityCounts = {
-      critical: tasks.filter(t => t.priority === 'critical').length,
-      high: tasks.filter(t => t.priority === 'high').length,
-      medium: tasks.filter(t => t.priority === 'medium').length,
-      low: tasks.filter(t => t.priority === 'low').length
+      critical: tasks.filter((t) => t.priority === 'critical').length,
+      high: tasks.filter((t) => t.priority === 'high').length,
+      medium: tasks.filter((t) => t.priority === 'medium').length,
+      low: tasks.filter((t) => t.priority === 'low').length,
     };
 
     console.log('\n📊 Project Summary:');
-    console.log(`Status: ${statusCounts.completed} completed, ${statusCounts.inprogress} in progress, ${statusCounts.pending} pending, ${statusCounts.failed} failed`);
-    console.log(`Priority: ${priorityCounts.critical} critical, ${priorityCounts.high} high, ${priorityCounts.medium} medium, ${priorityCounts.low} low`);
+    console.log(
+      `Status: ${statusCounts.completed} completed, ${statusCounts.inprogress} in progress, ${statusCounts.pending} pending, ${statusCounts.failed} failed`
+    );
+    console.log(
+      `Priority: ${priorityCounts.critical} critical, ${priorityCounts.high} high, ${priorityCounts.medium} medium, ${priorityCounts.low} low`
+    );
 
     // Show next available tasks (pending with no pending dependencies)
-    const nextTasks = tasks.filter(task => {
+    const nextTasks = tasks.filter((task) => {
       if (task.status !== 'pending') return false;
 
-      return task.dependencies.every(depId => {
-        const depTask = tasks.find(t => t.id === depId);
+      return task.dependencies.every((depId) => {
+        const depTask = tasks.find((t) => t.id === depId);
         return !depTask || depTask.status === 'completed';
       });
     });
 
     if (nextTasks.length > 0) {
       console.log(`\n🚀 Next available tasks: ${nextTasks.length}`);
-      nextTasks.slice(0, 3).forEach(task => {
+      nextTasks.slice(0, 3).forEach((task) => {
         console.log(`  • ID ${task.id}: ${task.title} (${task.priority})`);
       });
     }
