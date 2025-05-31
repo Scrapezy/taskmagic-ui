@@ -73,7 +73,7 @@
     "@types/js-yaml": "^4.0.9",
     "blessed": "^0.1.81",
     "blessed-contrib": "^4.11.0",
-    "chokidar": "^3.0.0",
+    "chokidar": "^4.0.3",
     "commander": "^11.1.0",
     "gray-matter": "^4.0.0",
     "ink": "^4.0.0",
